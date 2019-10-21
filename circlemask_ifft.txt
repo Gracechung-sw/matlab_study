@@ -1,0 +1,29 @@
+n = 500;                 % size of mask
+
+M = zeros(n);
+
+I = 1:n;
+
+x = I-n/2;                % mask x-coordinates
+
+y = n/2-I;                % mask y-coordinates
+
+[X,Y] = meshgrid(x,y);    % create 2-D mask grid
+
+R = 100;                   % aperture radius
+
+A = (X.^2 + Y.^2 <= R^2); % circular aperture of radius R
+
+
+
+M(A) = 200;                 % set mask elements inside aperture to 1
+
+figure,imagesc(A),title('circlecut');
+
+B = fftshift(ifft2((A)));% plot mask
+
+
+
+imagesc(abs(B)),title('circleifft');
+
+axis image;

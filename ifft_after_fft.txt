@@ -1,0 +1,43 @@
+clc, clear, close all
+
+
+
+X = imread('pen.jpg');
+
+figure(1), imagesc(X);
+
+X = fftshift(X(:,:,2));
+
+title('image');
+
+
+
+Y = fft2(X);
+
+figure(2), imagesc(abs(fftshift(Y)));
+
+title('penfft2');
+
+
+
+% Y = fft2(X,2^nextpow2(500),2^nextpow2(500));
+
+% imagesc(abs(fftshift(Y)));
+
+% title('penfft22');
+
+
+
+H = zeros(512);
+
+H(257, 257) = 6.242e+07;
+
+figure, imagesc(H), title('H');
+
+%figure, mesh(H), title('image3');
+
+
+
+output = ifft2(H);
+
+figure, imshow(real(output)), title('penifft1');

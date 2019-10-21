@@ -1,0 +1,7 @@
+A = zeros(150);
+
+H = [5 5 5; 5 7 5; 5 5 5];
+
+A(74:76, 74:76) = H;
+
+figure, imagesc(A), mesh(A), colormap('gray'), title('kernel');

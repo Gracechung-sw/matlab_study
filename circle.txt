@@ -1,0 +1,21 @@
+clc, clear, close all;
+
+center=[250 250];
+
+r=250;
+
+N=100;
+
+theta=linspace(0,2*pi,N);
+
+x=r*cos(theta)+center(1);
+
+y=r*sin(theta)+center(2);
+
+mask2 = plot(x,y), title('mask2');
+
+
+
+fill(x,y,6.242e+07);
+
+axis equal;

@@ -1,0 +1,97 @@
+clc, clear, close all;
+
+
+
+A = imread('dear.jpg');
+
+A = rgb2gray(A);
+
+[l, m] = size(A);
+
+B = zeros(l+2,m+2);
+
+B(2:l+1,2:m+1) = A;
+
+C = zeros(l,m);
+
+%figure, imagesc(B), colormap('gray'), title('zeropadding') %zero-padding
+
+
+
+
+
+H = [5 5 5; 5 7 5; 5 5 5];
+
+
+
+
+
+for i = 2:l
+
+     for j = 2:m
+
+       C(i,j) =  B(i-1,j-1)*H(1,1) + B(i-1,j)*H(1,2) +B(i-1,j+1)*H(1,3) +B(i,j-1)*H(2,1) +B(i,j)*H(2,2) + B(i,j+1)*H(2,3) +B(i+1,j-1)*H(3,1) + B(i+1,j)*H(3,2)+B(i+1,j+1)*H(3,3);
+
+    end
+
+end
+
+
+
+figure, imagesc(C), colormap('gray'), title('convolution');
+
+
+
+D = imread('dear.jpg');
+
+figure, imagesc(D), title('image');
+
+D = fftshift(D(:,:,2));
+
+E = fft2(D);
+
+%figure, imagesc(abs(fftshift(E))),colormap('gray'), title('dearfft2');
+
+
+
+H = [5 5 5; 5 7 5; 5 5 5];
+
+[x, y] = size(H);
+
+F = zeros(x+147, y+147);
+
+F(74:76,74:76) = H;
+
+%figure, imagesc(F), colormap('gray'), title('zeropadding'); %zero-padding
+
+%figure, mesh(F),title('filter fft');
+
+
+
+%F = fftshift(F(:,:));
+
+G = fftshift(fft2(fftshift(F)));
+
+%figure, imagesc(abs(C)), colormap('gray'), title('filter fft'); %zero-padding
+
+
+
+I = E.*G;
+
+%figure, imagesc(D), colormap('gray'), title('D');%zero-padding ifft
+
+J =fftshift((ifft2((I))));
+
+figure, imagesc(abs(J)), colormap('gray'), title('dearifft');
+
+
+
+output = C - J;
+
+%figure, imagesc(abs(output)), colormap('gray'), title('minus');
+
+abs(output)
+
+
+
+맨위로

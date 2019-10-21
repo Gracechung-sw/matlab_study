@@ -1,0 +1,17 @@
+function [B] = zeropaddingF(img,x,y)
+
+A = imread(img);
+
+A = rgb2gray(A);
+
+[l, m] = size(A);
+
+B = zeros(l+x,m+y);
+
+B((x/2)+1:l+(x/2),(y/2)+1:m+(y/2)) = A;
+
+
+
+figure, imagesc(B), colormap('gray'), title('zeropadding') %zero-padding
+
+end

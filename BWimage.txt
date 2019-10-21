@@ -1,0 +1,5 @@
+img = imread('pen.jpg');
+
+BW = im2bw(img, 0.5);
+
+imshow(img),figure(2),imshow(BW);

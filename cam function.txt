@@ -1,0 +1,9 @@
+function cam=hianjang_cam(ii)
+
+clear('cam');
+
+webcamlist;
+
+cam = webcam(ii);
+
+preview(cam);

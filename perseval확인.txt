@@ -1,0 +1,25 @@
+clc, clear, close all;
+
+Fs=40;f=4;Ts=1/Fs;T=2;t=0:Ts:T-Ts;N=length(t);
+
+[X,Y]=meshgrid(0:Ts:T);
+
+R=sqrt(X.^2+Y.^2);
+
+y=sin(R*f);
+
+fy=fftshift(fft2(y));
+
+figure,
+
+subplot(1,2,1),surf(abs(y.^2)),shading interp,
+
+title(' Time Domain');
+
+subplot(1,2,2), surf(abs(fy)), shading interp,
+
+title(' Frequency Domain');
+
+E2_timedomain=sum(sum(abs(y.^2)))
+
+E2_frequdomain=sum(sum(abs(fy.^2)))/N^2

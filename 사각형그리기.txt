@@ -1,0 +1,15 @@
+clc, clear, close all;
+
+I = zeros(100);
+
+I1 = zeros(300);
+
+I(40:60, 40:60) = 30;
+
+I1(50, 50) = 200;
+
+figure, imagesc(I), colormap('gray');
+
+figure, imagesc(I1), colormap('gray');
+
+figure, mesh(I); figure, mesh(I1);

@@ -1,0 +1,65 @@
+clc, clear, close all;
+
+
+
+clear('cam');
+
+
+
+webcamlist;
+
+
+
+cam = webcam(2);
+
+
+
+preview(cam);
+
+%img = snapshot(cam);
+
+
+
+ imwrite(testa, 'testa.jpg');
+
+testb = snapshot(cam);
+
+imwrite(testb, 'testb.jpg');
+
+testc = snapshot(cam);
+
+imwrite(testc, 'testc.jpg');
+
+testd = snapshot(cam);
+
+imwrite(testd, 'testd.jpg');
+
+teste = snapshot(cam);
+
+imwrite(teste, 'teste.jpg');
+
+ imwrite(test, 'test.jpg');
+
+test1 = snapshot(cam);
+
+imwrite(test1, 'test1.jpg');
+
+test2 = snapshot(cam);
+
+imwrite(test2, 'test2.jpg');
+
+test3 = snapshot(cam);
+
+imwrite(test3, 'test3.jpg');
+
+test4 = snapshot(cam);
+
+imwrite(test4, 'test4.jpg');
+
+test5 = snapshot(cam);
+
+imwrite(test5, 'test5.jpg');
+
+testa = snapshot(cam);
+
+imwrte(testa, 'testa,jpg');
